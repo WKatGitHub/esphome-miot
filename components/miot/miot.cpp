@@ -234,6 +234,7 @@ void Miot::update_property(uint32_t siid, uint32_t piid, const char *value) {
     (*it).second.func(MiotValue(parse_number<uint32_t>(value).value_or(0u)));
     break;
   case mvtFloat:
+    ESP_LOGW(TAG, "Received property value parsed float: %" PRIu32 " %" PRIu32 " %s", siid, piid, value);
     (*it).second.func(MiotValue(parse_number<float>(value).value_or(0.0f)));
     break;
   case mvtString:
